@@ -1,0 +1,23 @@
+# Build context is the repository root: the image needs both web/ and api/.
+# Keep host-specific artifacts out — copying node_modules or .next in makes the
+# build non-reproducible and slow.
+**/node_modules
+**/.next
+**/out
+**/coverage
+**/.venv
+**/__pycache__
+**/*.py[cod]
+**/data
+**/*.log
+**/.env
+**/.env.*
+!**/.env.example
+**/*.tsbuildinfo
+**/.DS_Store
+.git
+.gitignore
+docs
+Dockerfile
+.dockerignore
+render.yaml

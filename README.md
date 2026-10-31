@@ -13,7 +13,7 @@ hero, in the coffee section, in the footer — and now on the door.
 ```
 nujiang-26-5/
   web/        Next.js 14 (App Router) + React + TS + Tailwind, i18n (en default, zh)
-  api/        FastAPI lead-capture API (Python + PostgreSQL)
+  api/        FastAPI lead-capture API (Python; SQLite by default, Postgres optional)
   docs/       PRD, architecture, media credits
 ```
 
@@ -74,12 +74,15 @@ route with `alternates.languages`; `robots.txt` is generated.
   from its own metadata — Commons category naming the county, EXIF GPS, or an
   author description naming the village. Filenames are not evidence. Photos that
   fail are dropped or captioned “illustrative” and never given a Nujiang place name.
-- The backend uses **psycopg 3** (`psycopg[binary]`), not psycopg2 — the psycopg2
-  sdist fails to build on macOS without a local libpq toolchain.
-- Without `DATABASE_URL` the API degrades to an in-memory store, so the form works
-  in dev with no database.
+- The API stores leads in **SQLite** at `api/data/leads.db` by default — no server
+  to provision for a local run or a smoke test. Point `DATABASE_URL` at Postgres
+  for real traffic and install the driver first (`pip install -r
+  requirements-postgres.txt`): psycopg is kept out of `requirements.txt` on
+  purpose, because psycopg2's sdist fails to build on macOS without a local libpq
+  toolchain and a driver nobody installed should not be a hard dependency.
+- Set `DATABASE_URL` to an **empty string** to use the in-memory store (tests).
 - **Lead notifications are opt-in.** Nothing is emailed until `SMTP_HOST` and
-  `LEAD_NOTIFY_EMAIL` are set (see `api/.env.example`); `/health` reports
+  `LEAD_NOTIFY_EMAIL` are set (see `api/.env.example`); `/api/health` reports
   `"mail": "off"` until then. Submissions are always stored either way.
 
 ## The contact form runs in demo mode
@@ -148,6 +151,17 @@ Two conventions worth knowing before editing:
 
 ## Deploy
 
-- Frontend → Vercel (`NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_API_BASE`).
-- API → Railway/Fly with `DATABASE_URL` + `CORS_ORIGINS`.
-- CDN → Cloudflare.
+One Docker image serves both halves on a single port: nginx in front, Next.js on
+`:3000`, FastAPI on `:8000` behind it, `/api/*` routed to the API and everything
+else to the site. One origin means no CORS and no cross-site cookies.
+
+```bash
+docker build -t nujiang-26-5 .
+docker run --rm -p 3000:10000 -e PORT=10000 nujiang-26-5   # no DATABASE_URL → SQLite
+```
+
+Production target is **Render (Docker) + Neon Postgres**, driven by the
+`render.yaml` Blueprint in this repo; the image path and the env checklist are in
+[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). The frontend also has a
+frontend-only preview deployment on the file-based host, in demo mode — that link
+acknowledges submissions without storing them, so share the Render one.

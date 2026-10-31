@@ -1,0 +1,42 @@
+# Render Blueprint — one Docker web service that serves the site and its API.
+#
+# Deploy: Render dashboard → New → Blueprint → pick this repo. Render reads this
+# file, builds ./Dockerfile (nginx + Next.js + FastAPI in one image) and asks for
+# the one secret marked `sync: false`.
+#
+# The database is deliberately NOT declared here. Render's free Postgres expires
+# 30 days after creation, which is a bad fit for a portfolio link that has to keep
+# working; point DATABASE_URL at a Neon free project instead (it autosuspends in
+# ~5 min and resumes in well under a second). With no DATABASE_URL at all the API
+# falls back to SQLite on the container filesystem — fine for a smoke test, but
+# the file is lost on every deploy, so leads would vanish.
+services:
+  - type: web
+    name: nujiang-26-5
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      # Lead notifications are opt-in. Leave these unset and an enquiry is still
+      # stored and acknowledged — it simply is not emailed anywhere.
+      - key: LEAD_NOTIFY_EMAIL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      # Only needed if the site and API are ever split onto different hosts.
+      # Same-origin requests (the default here) need no CORS entry.
+      - key: CORS_ORIGINS
+        value: https://nujiang-26-5.onrender.com,http://localhost:3000

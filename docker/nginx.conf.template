@@ -1,0 +1,42 @@
+# Rendered at container start: __PORT__ is replaced by the platform's PORT.
+# Everything else is fixed, because this file describes an internal topology that
+# does not change between environments.
+
+server {
+    listen __PORT__;
+    server_name _;
+
+    # The form posts small JSON; 1m is already generous.
+    client_max_body_size 1m;
+
+    # FastAPI. The path is passed through untouched, so the API's own routes are
+    # the ones you curl: /api/lead, /api/health, /api/docs.
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 30s;
+    }
+
+    # Next.js owns everything else, including _next/static and the locale routes.
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # Next builds absolute URLs (the / → /en redirect is one) from the
+        # forwarded host. Without this it falls back to its own bind address and
+        # sends visitors to the container's internal 127.0.0.1:3000. $http_host
+        # rather than $host so a non-default port survives.
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 30s;
+    }
+}
