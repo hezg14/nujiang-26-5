@@ -1,0 +1,9 @@
+# Postgres driver, kept out of requirements.txt on purpose.
+#
+# The default store is SQLite (see config.py), which needs no extra package.
+# Install this file only when DATABASE_URL points at Postgres:
+#
+#   pip install -r requirements-postgres.txt
+#
+-r requirements.txt
+psycopg[binary]==3.2.3

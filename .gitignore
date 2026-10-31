@@ -19,6 +19,9 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 
+# Default SQLite store — created on first run, never committed
+api/data/
+
 # Logs
 *.log
 

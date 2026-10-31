@@ -13,7 +13,7 @@ from fastapi import BackgroundTasks, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from config import CORS_ORIGINS, NOTIFY_EMAIL, SMTP
+from config import BOOTSTRAP_SCHEMA, CORS_ORIGINS, NOTIFY_EMAIL, SMTP
 from database import Base, engine, get_db
 from models import Lead
 from schemas import LeadCreate, LeadOut
@@ -21,11 +21,21 @@ from schemas import LeadCreate, LeadOut
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("nujiang.api")
 
-# Convenience for a fresh clone; a real deployment should run migrations.
-if engine is not None:
+# Convenience for a fresh clone and for `uvicorn --reload`. In the container this
+# is off: `python -m bootstrap` has already created the schema, and letting every
+# worker repeat it is a race that ends in "table leads already exists".
+if engine is not None and BOOTSTRAP_SCHEMA:
     Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Nujiang 26.5 — Lead API", version="0.3.0")
+app = FastAPI(
+    title="Nujiang 26.5 — Lead API",
+    version="0.4.0",
+    # Every route hangs off /api so the container's nginx can hand one prefix to
+    # this process and leave everything else to Next.js.
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json",
+    redoc_url=None,
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -93,11 +103,27 @@ def notify_lead(name: str, email: str, message: str) -> None:
         log.warning("lead notification failed: %s", exc)
 
 
+@app.get("/api")
+@app.get("/")
+def root() -> dict:
+    """A bare 404 at the API root reads like a broken deployment; say what this
+    box is and where the interactive docs live. `/` stays for direct local runs
+    that have no nginx in front."""
+    return {
+        "service": "Nujiang 26.5 — Lead API",
+        "version": app.version,
+        "docs": "/api/docs",
+        "health": "/api/health",
+        "endpoints": ["POST /api/lead"],
+    }
+
+
+@app.get("/api/health")
 @app.get("/health")
 def health() -> dict:
     return {
         "status": "ok",
-        "db": "postgres" if engine is not None else "memory",
+        "db": engine.url.get_backend_name() if engine is not None else "memory",
         "mail": "on" if SMTP["host"] and NOTIFY_EMAIL else "off",
         "notify_to": NOTIFY_EMAIL or None,
     }

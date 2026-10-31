@@ -14,13 +14,33 @@ def _driver_url(url: str) -> str:
     return url
 
 
+def _connect_args(url: str) -> dict:
+    """SQLite serialises writes per file, and FastAPI serves requests from a
+    thread pool — without this the same connection cannot hop between threads."""
+    return {"check_same_thread": False} if url.startswith("sqlite") else {}
+
+
+def _ensure_sqlite_dir(url: str) -> None:
+    """SQLite will not create a missing parent directory, and the default store
+    lives in ./data — which a fresh clone or a fresh sandbox does not have."""
+    if not url.startswith("sqlite:///"):
+        return
+    from pathlib import Path
+
+    Path(url.removeprefix("sqlite:///")).parent.mkdir(parents=True, exist_ok=True)
+
+
 # No DATABASE_URL → no engine, and the API degrades to an in-memory store so the
 # frontend can be developed without a database.
-engine = (
-    create_engine(_driver_url(DATABASE_URL), pool_pre_ping=True)
-    if DATABASE_URL
-    else None
-)
+if DATABASE_URL:
+    _ensure_sqlite_dir(DATABASE_URL)
+    engine = create_engine(
+        _driver_url(DATABASE_URL),
+        pool_pre_ping=True,
+        connect_args=_connect_args(DATABASE_URL),
+    )
+else:
+    engine = None
 
 SessionLocal = (
     sessionmaker(bind=engine, autoflush=False, autocommit=False)
