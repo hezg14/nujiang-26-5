@@ -21,3 +21,6 @@ __pycache__/
 
 # Logs
 *.log
+
+# Local tooling state (workbench memory, editor caches)
+.workbuddy/
