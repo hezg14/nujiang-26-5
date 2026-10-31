@@ -83,9 +83,17 @@ JSON-LD URLs will point at the old host.
 
 ## Step 3 — Verify
 
+`/api/health` is a liveness check: it says the process is up, not that it can
+store anything. `/api/ready` runs `SELECT 1` against the database, so it is the
+one that catches a wrong password or a paused Neon project.
+
 ```bash
 curl https://nujiang-26-5.onrender.com/api/health
-# {"status":"ok","db":"postgres","mail":"off","notify_to":null}
+# {"status":"ok","db":"postgresql","mail":"off","notify_to":null}
+
+curl https://nujiang-26-5.onrender.com/api/ready
+# {"status":"ready","db":"postgresql","latency_ms":24.1}
+# → {"status":"degraded", ...} means the database is unreachable, not the app
 
 curl -X POST https://nujiang-26-5.onrender.com/api/lead \
   -H 'Content-Type: application/json' \
@@ -93,7 +101,12 @@ curl -X POST https://nujiang-26-5.onrender.com/api/lead \
 # 201 {"id":1,...}
 ```
 
-Then open the site and submit the form once. In live mode there is no demo
+Then confirm it actually landed: Neon → **SQL editor** →
+`select * from leads order by created_at desc;`. A 201 from a container that
+wrote to a throwaway SQLite file looks identical from the outside, so check the
+row, not the response.
+
+Finally open the site and submit the form once. In live mode there is no demo
 footnote under the button, and the acknowledgement only appears after the API
 returned 201 — if the API is unreachable the form shows the error line instead
 of pretending it worked.

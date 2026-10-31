@@ -63,8 +63,12 @@ RUN if [ -f /etc/apt/sources.list.d/debian.sources ]; then \
 # venv keeps `pip install` from fighting the distro packages.
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
-COPY api/requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+# Install the Postgres driver alongside the base requirements. Production points
+# DATABASE_URL at Neon, and without psycopg SQLAlchemy raises ModuleNotFoundError
+# the instant the engine is created — the container would never open a port, or
+# worse, would serve pages while every submission failed.
+COPY api/requirements.txt api/requirements-postgres.txt /tmp/
+RUN pip install --no-cache-dir -r /tmp/requirements-postgres.txt
 
 WORKDIR /app
 COPY api/ /app/api/

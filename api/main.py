@@ -7,10 +7,12 @@ does not disappear. Email notification is optional and never blocks the write.
 import logging
 import smtplib
 import ssl
+import time
 from email.message import EmailMessage
 
 from fastapi import BackgroundTasks, Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from config import BOOTSTRAP_SCHEMA, CORS_ORIGINS, NOTIFY_EMAIL, SMTP
@@ -126,6 +128,39 @@ def health() -> dict:
         "db": engine.url.get_backend_name() if engine is not None else "memory",
         "mail": "on" if SMTP["host"] and NOTIFY_EMAIL else "off",
         "notify_to": NOTIFY_EMAIL or None,
+    }
+
+
+@app.get("/api/ready")
+def ready() -> dict:
+    """Liveness is not readiness: the process can be up and still unable to store
+    anything.
+
+    Kept apart from `/api/health` on purpose — health is what Render polls, and a
+    database outage should surface as a failing submission, not as the platform
+    restarting a container that was never the problem. This one runs `SELECT 1`
+    so a deploy can be verified with a single request instead of "it opened, so
+    it must work".
+    """
+    if engine is None:
+        return {"status": "degraded", "db": "memory", "detail": "no DATABASE_URL"}
+
+    started = time.monotonic()
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception as exc:  # noqa: BLE001 — report any driver or network error
+        log.warning("readiness probe failed: %s", exc)
+        return {
+            "status": "degraded",
+            "db": engine.url.get_backend_name(),
+            "detail": str(exc)[:200],
+        }
+
+    return {
+        "status": "ready",
+        "db": engine.url.get_backend_name(),
+        "latency_ms": round((time.monotonic() - started) * 1000, 1),
     }
 
 
