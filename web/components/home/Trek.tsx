@@ -32,7 +32,7 @@ export default function Trek({ trek }: { trek: Dict["trek"] }) {
 
             <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-line pt-3 font-mono text-xs text-ink-3">
               <span>{route.distance}</span>
-              <span aria-hidden className="text-line">
+              <span aria-hidden className="text-ink-3/60">
                 /
               </span>
               <span>{route.time}</span>
