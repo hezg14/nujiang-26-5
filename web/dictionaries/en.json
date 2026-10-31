@@ -1,0 +1,456 @@
+{
+  "brand": {
+    "name": "Nujiang",
+    "project": "Nujiang 26.5",
+    "chinese": "怒江",
+    "tagline": "Coffee · Canyon · Culture"
+  },
+  "nav": [
+    {
+      "label": "Coffee",
+      "href": "#coffee"
+    },
+    {
+      "label": "Landscapes",
+      "href": "#landscape"
+    },
+    {
+      "label": "Trekking",
+      "href": "#trek"
+    },
+    {
+      "label": "Food",
+      "href": "#food"
+    },
+    {
+      "label": "Journal",
+      "href": "/journal"
+    },
+    {
+      "label": "Visit",
+      "href": "#visit"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    }
+  ],
+  "meta": {
+    "title": "Nujiang 26.5 — Coffee, Canyon & Culture",
+    "description": "A bilingual portrait of Nujiang, Yunnan: China's high-latitude coffee frontier at 26.5°N, the Nujiang Grand Canyon, Kongque Shan, hiking trails and Nu/Lisu food."
+  },
+  "hero": {
+    "origin": "26.5°N · ALT 1,200 M · YUNNAN, CHINA",
+    "title": "Where China's coffee climbs the canyon.",
+    "subtitle": "Most commercial arabica stops around 25°N. Nujiang grows it at 26.5°, on volcanic-ash slopes between the Gaoligong and Biluo ranges — further north than almost any coffee on Earth. The canyon is the reason: shade, altitude and a slow ripening season. This is the bean, the gorge it grows in, the trail above it and the table beside it.",
+    "ctaPrimary": "Explore the origin",
+    "ctaSecondary": "Plan a visit",
+    "imageAlt": "The Nujiang gorge upstream of Bingzhongluo, first snow peak at the head of the valley",
+    "imageTag": "27.9°N · Bingzhongluo reach"
+  },
+  "theme": {
+    "eyebrow": "Official tourism brand — 文旅主题",
+    "brandZh": "秘境怒江 · 户外天堂",
+    "brandEn": "Mijing Nujiang · Outdoor Paradise",
+    "sloganZh": "有一种向往去怒江",
+    "sloganEn": "“There is a longing to go to Nujiang.”",
+    "lead": "Nujiang's culture and tourism bureau now promotes the prefecture on two official lines, nested inside Yunnan's provincial campaign 有一种叫云南的生活 (“This is Yunnan life”): the destination IP 有一种向往去怒江, and the brand 秘境怒江·户外天堂. Coffee sits inside both — the 2025–26 winter season is packaged as three themed routes.",
+    "routesTitle": "The three official winter routes (2025.12–2026.03)",
+    "routes": [
+      {
+        "zh": "激情野水 · 秘境探险",
+        "en": "Whitewater & secret valleys",
+        "note": "Rafting on the Salween, G219 Beautiful Highway, Tiger Leaping rapids, the First Bend, and up to Kongque Shan."
+      },
+      {
+        "zh": "欢乐阔时 · 非遗寻踪",
+        "en": "Festival & living heritage",
+        "note": "Laomden, Baihualing, Wuli, Dulongjiang and Luoguqing — Lisu four-part harmony, Nu dabiya, Dulong weaving."
+      },
+      {
+        "zh": "暖冬康养 · 云上栖心",
+        "en": "Warm-winter wellness",
+        "note": "Hot springs, canyon-view guesthouses and a slow cup of Nujiang specialty coffee above the cloud sea."
+      }
+    ],
+    "chips": [
+      "2026 阔时 Culture Festival · 20 Dec 2025 – 5 Jan 2026",
+      "6th Nujiang Coffee & Cardamom Week · 1–6 Oct, Lushui",
+      "Follow the races · 跟着赛事游怒江",
+      "Winter rafting · 冬季到怒江来漂流"
+    ]
+  },
+  "coffee": {
+    "eyebrow": "The origin — 咖啡",
+    "title": "A coffee frontier at 26.5° north.",
+    "lead": "Arabica stops climbing around 25°N almost everywhere else. Nujiang grows it a full degree and a half further north, from 800 m up to 1,800 m, on volcanic-ash soil that farmers here call “panda soil”. At this latitude the cherry ripens slowly, once a year — less yield, more sugar, and a cup that reads floral rather than syrupy.",
+    "imageCaption": "Coffea arabica cherries — illustrative, not shot in Nujiang",
+    "specs": [
+      {
+        "label": "Latitude",
+        "value": "26.5° N — beyond the traditional 25° limit"
+      },
+      {
+        "label": "Altitude",
+        "value": "800–1,500 m (some plots to 1,800 m); the 1,200 m belt is the sweet spot"
+      },
+      {
+        "label": "Soil",
+        "value": "Volcanic-ash, selenium-rich — locals call it “panda soil”"
+      },
+      {
+        "label": "Climate",
+        "value": "High plateau, high latitude, high heat swing; distinct wet and dry seasons"
+      },
+      {
+        "label": "Species",
+        "value": "Arabica (Coffea arabica), small-bean type"
+      }
+    ],
+    "varietalsTitle": "Varietals in the ground",
+    "varietals": [
+      "Geisha",
+      "Typica",
+      "Bourbon",
+      "Caturra",
+      "Yunka No.2",
+      "Biluoxue",
+      "Gaoligong",
+      "Dere 5"
+    ],
+    "industry": [
+      {
+        "value": "4,000 ha",
+        "label": "planted area prefecture-wide (60,000 mu)"
+      },
+      {
+        "value": "83%",
+        "label": "improved-variety coverage (49,800 mu of premium plots)"
+      },
+      {
+        "value": "¥576 M",
+        "label": "Lushui's 2025 coffee output value"
+      },
+      {
+        "value": "2,813",
+        "label": "households lifted, +¥35.9k average"
+      }
+    ],
+    "industryNote": "Figures from the prefecture's 2025 specialty-coffee work plan and China.com.cn (Apr 2026) — full source list in the footer.",
+    "processTitle": "From red cherry to cup",
+    "process": [
+      {
+        "step": "Hand-picked",
+        "desc": "Only fully ripe red cherries are picked; green cherries are rejected to protect the cup."
+      },
+      {
+        "step": "Washed & dried",
+        "desc": "Wet-milling and raised-bed drying lock in clarity and sweetness."
+      },
+      {
+        "step": "Sorted & graded",
+        "desc": "Akgbi's 300 m² line now grades 1.5 t of parchment an hour — no more trucking cherry to Baoshan."
+      },
+      {
+        "step": "Roasted & brewed",
+        "desc": "Local roasters and the “Nujiang Xiaoka” brand carry it to shelves in Beijing, Shanghai and Kunming."
+      }
+    ],
+    "tourismTitle": "Coffee has joined the itinerary.",
+    "tourismLead": "The prefecture's coffee plan explicitly builds 咖旅融合 — coffee-plus-tourism — into estates, old towns and scenic areas.",
+    "tourism": [
+      {
+        "name": "Zhiziluo coffee estate",
+        "where": "Fugong · 2,023 m",
+        "body": "The “memory city” left behind when the county seat moved in 1986 now roasts beans named after Stone Moon and Crown Mountain, in an emptied 1960s street."
+      },
+      {
+        "name": "Nujiang Xiaoka 怒小咖",
+        "where": "Beijing · Shanghai · Kunming",
+        "body": "The regional public brand, shown and sold outside the province — the bean as a calling card for the canyon."
+      },
+      {
+        "name": "Lushui coffee belt",
+        "where": "Lushui",
+        "body": "349 coffee businesses and 62 cafés; estates at Lishu, Fuba and Manying host picking, processing and cupping visits."
+      },
+      {
+        "name": "Coffee & cardamom week",
+        "where": "Lushui · every October",
+        "body": "Six editions so far: a tasting fair where coffee is paired with cardamom beer, canyon food and Nu/Lisu music."
+      }
+    ],
+    "bandLine": "Flavour is altitude: a slow ripening season at 1,200 m.",
+    "bandCaption": "Roasted beans — illustrative",
+    "bandAlt": "Roasted coffee beans",
+    "statement": "One harvest a year. Twelve hundred metres up.",
+    "statementNote": "26.5°N · ALT 1,200 M · SINGLE ANNUAL HARVEST"
+  },
+  "landscape": {
+    "eyebrow": "The canyon — 景观",
+    "title": "Two snow ranges, one river.",
+    "lead": "More than 98% of Nujiang is mountain and gorge. The Nujiang (Salween) runs between the Gaoligong and Biluo ranges — a UNESCO “Three Parallel Rivers” core zone and one of the world's richest temperate ecosystems.",
+    "creditNote": "Every photograph below is geolocated to Nujiang Prefecture; place names and coordinates follow the source file, not the caption writer. One card is a drawn section, not a photograph — it says so.",
+    "items": [
+      {
+        "name": "Nujiang Grand Canyon",
+        "image": "/images/hero-canyon.jpg",
+        "caption": "Laomden, Fugong County",
+        "body": "Known as the “Oriental Grand Canyon”, with vertical relief exceeding 3,000 m. This is the view from the Laomden ridge, tea terraces below."
+      },
+      {
+        "name": "Bingzhongluo",
+        "image": "/images/bingzhongluo.jpg",
+        "caption": "Bingzhongluo, Gongshan County",
+        "body": "A farming valley of Tibetan-Buddhist, Lisu and Nu communities, and the start of the rugged Bingchacha road into Tibet."
+      },
+      {
+        "name": "The First Bend",
+        "image": "/images/first-bend.jpg",
+        "caption": "28.00°N 98.63°E · Gongshan",
+        "body": "The river swings around a peninsula of fields near Bingzhongluo — the gorge's most photographed turn."
+      },
+      {
+        "name": "Crown Mountain",
+        "image": "/images/gaoligong-crown.jpg",
+        "caption": "26.56°N 98.91°E · Pihe, Fugong",
+        "body": "The eastern wall of the gorge. Gaoligong is a biodiversity hotspot — gibbons, hornbills, thousands of plant species."
+      },
+      {
+        "name": "The Gongshan gorge",
+        "image": "/images/gongshan-valley.jpg",
+        "caption": "27.75°N 98.67°E · Gongshan",
+        "body": "Upstream the gorge narrows and the road clings to the slope; the first snow peaks of the Tibetan border zone sit far behind."
+      },
+      {
+        "name": "Biluo cliff wall",
+        "image": "/images/biluo-cliff.jpg",
+        "caption": "26.27°N 98.87°E · Gudeng, Lushui",
+        "body": "Bare limestone and hanging vegetation on the Biluo side — the wall that forces the river into its channel."
+      },
+      {
+        "name": "Gaoligong ridges",
+        "image": "/images/gaoligong-ridges.jpg",
+        "caption": "26.55°N 98.91°E · Pihe, Fugong",
+        "body": "Ridge behind ridge under storm light: the vertical stacking that makes this one of the deepest gorges on Earth."
+      },
+      {
+        "name": "Biluo, eastern flank",
+        "image": "/images/biluo-east.jpg",
+        "caption": "26.11°N 98.86°E · Daxingdi",
+        "body": "The eastern flank of the Biluo range stepping down to the river: dry, hot slopes of maize and walnut, a different world from the wet Gaoligong side."
+      },
+      {
+        "name": "Biluo Range & Kongque Shan",
+        "image": "",
+        "caption": "Northern Biluo, Gongshan–Deqin border",
+        "body": "A pyramidal peak of about 4,400 m, named for a peacock's fanned tail, standing on the Gongshan–Deqin county line with the river systems split on either side. The old Degong road crosses the range at a 3,882 m pass, and the Tianxin Twelve Lakes sit in the basin just above it. No openly licensed photograph of the summit exists, so this card draws the measured section instead of captioning another mountain.",
+        "profile": {
+          "peak": "Kongque Shan",
+          "summit": "4,400 m",
+          "pass": "3,882 m",
+          "passLabel": "pass",
+          "lakes": "Tianxin Twelve Lakes",
+          "scaleLabel": "10 km",
+          "axisLabel": "metres"
+        }
+      }
+    ],
+    "plateTag": "Drawn section"
+  },
+  "trek": {
+    "eyebrow": "The trail — 徒步",
+    "title": "Walk the gorge and the high lakes.",
+    "lead": "Two Nujiang routes made Yunnan's 2024 “Classic Hiking Routes” list. Add the alpine lakes of Kongque Shan and the old tea-horse road for a full traverse.",
+    "routes": [
+      {
+        "name": "Nujiang Grand Canyon (Bingzhongluo section)",
+        "distance": "19.5 km",
+        "time": "1 day",
+        "difficulty": "Moderate",
+        "note": "Start and end at Bingzhongluo town; passes the First Bend, a suspension bridge, Taohua Island and Puhua Monastery. On Yunnan's 2024 classic list."
+      },
+      {
+        "name": "Luoguqing–Dayangchang (Lanping)",
+        "distance": "~15 km",
+        "time": "1 day",
+        "difficulty": "Moderate",
+        "note": "Old-growth forest, Danxia rock peaks and alpine meadow in the Laojunshan area. On the 2024 classic list."
+      },
+      {
+        "name": "Kongque Shan lakes loop",
+        "distance": "4 km light / 9–10 km big loop",
+        "time": "2–5 h",
+        "difficulty": "Light to hard",
+        "note": "From the pass at ~3,882 m to the Tianxin Twelve Lakes; the big loop climbs above 4,100 m toward the Cuori Laka lakes. At ~4,000 m, go slow."
+      },
+      {
+        "name": "Dulongjiang secret trail",
+        "distance": "~12 km",
+        "time": "Half day",
+        "difficulty": "Moderate",
+        "note": "Kongdang to the Moon Waterfall near the Myanmar border. A border-area permit is required."
+      }
+    ],
+    "safety": "Carry a satellite messenger, download offline maps, and never hike the gorge alone. The Dulongjiang area needs a border permit; avoid the June–September rains and check road conditions before you go."
+  },
+  "food": {
+    "eyebrow": "The table — 美食",
+    "title": "Canyon cooking, cooked over fire.",
+    "lead": "Nu and Lisu kitchens work with what the gorge gives: lacquer oil, stone slabs, bamboo and river fish.",
+    "dishes": [
+      {
+        "name": "Lacquer-oil chicken",
+        "alt": "漆油鸡",
+        "desc": "Free-range chicken braised in oil pressed from lacquer-tree seeds — the canyon's signature dish.",
+        "note": "A minority of people are allergic to lacquer oil; try a little first."
+      },
+      {
+        "name": "Laowo ham",
+        "alt": "老窝火腿",
+        "desc": "Dry-cured ham from Laowo, Lushui — high-mountain pork, salt and time, no additives."
+      },
+      {
+        "name": "Stone-slab flatbread",
+        "alt": "石板粑粑",
+        "desc": "Buckwheat batter cooked on a slate slab over the fire — no oil needed.",
+        "note": "A Nu and Dulong tradition from Gongshan."
+      },
+      {
+        "name": "Lisu hand-grabbed rice",
+        "alt": "手抓饭",
+        "desc": "Rice, cured pork, roast chicken and wild greens spread on banana leaf, eaten by hand."
+      },
+      {
+        "name": "Pipa pork",
+        "alt": "琵琶肉",
+        "desc": "Nu-style cured pork, rich and marbled, sliced for guests."
+      },
+      {
+        "name": "Xiala / Gula",
+        "alt": "侠辣 / 巩辣",
+        "desc": "Chicken or egg “wine stir-fry” — a warm Lisu tonic served to honoured guests."
+      }
+    ],
+    "allergy": "Wild mushrooms must be cooked through. Lacquer oil and strong herbal wines are “slow” — go easy on your first night before a mountain day.",
+    "marksNote": "These six dishes are drawn, not photographed. No openly licensed photograph of lacquer-oil chicken or stone-slab flatbread exists, and a picture of some other province's food captioned as Nujiang would be a lie. When we have real photographs, they go here."
+  },
+  "visit": {
+    "eyebrow": "Plan — 来访",
+    "title": "Come in the dry season.",
+    "lead": "The canyon is at its clearest from October to November; Kongque Shan adds rhododendron in May–July.",
+    "season": "Best: Oct–Nov, when water is clear and weather is stable. Spring (May–Jul) for alpine rhododendron. Avoid the Jun–Sep rains and landslide season.",
+    "permits": "Dulongjiang and parts of Gongshan are border areas — arrange a Border Area Permit in advance.",
+    "transport": "Fly or take the train to Baoshan or Lijiang, then drive in. Roads are winding; hire a local driver for the gorge.",
+    "labels": {
+      "season": "Season",
+      "permits": "Permits",
+      "access": "Access"
+    },
+    "formTitle": "Plan a visit or a trade enquiry",
+    "formNote": "Coffee lots, custom itineraries, or a project of your own — tell me what you have in mind.",
+    "name": "Name",
+    "email": "Email",
+    "message": "What are you planning?",
+    "submit": "Send note",
+    "sending": "Sending…",
+    "replyNote": "Replies within 2 working days",
+    "success": "Thanks — I usually reply within two working days.",
+    "successTitle": "Note received",
+    "again": "Write another",
+    "demoNote": "Demo build — this form is not connected to a mailbox yet.",
+    "error": "Something went wrong. Please try again."
+  },
+  "about": {
+    "eyebrow": "About this build — 关于本站",
+    "title": "A bilingual, SEO-first portal — built as a live case study.",
+    "lead": "This site is both a portrait of Nujiang and a demonstration of the stack behind it.",
+    "problem": {
+      "title": "The brief",
+      "body": "Tell a real region's story — coffee, canyon, trail and table — to an international audience, in two languages, without turning it into a stock-photo brochure."
+    },
+    "approach": {
+      "title": "The approach",
+      "body": "An editorial “field-notes” design: origin-specimen labels, sourced facts, and photography treated as evidence rather than decoration. Every image is geolocated to the prefecture, or explicitly marked as illustrative."
+    },
+    "stack": {
+      "title": "The stack",
+      "items": [
+        "Next.js (App Router) + React + TypeScript",
+        "Tailwind CSS design system",
+        "App-Router i18n (EN / 中文)",
+        "Python + FastAPI lead capture",
+        "PostgreSQL"
+      ]
+    },
+    "result": {
+      "title": "The result",
+      "items": [
+        "Bilingual routing with hreflang + sitemap",
+        "Structured data (WebSite / Organization / Place)",
+        "Responsive, mobile-first, image-optimised",
+        "Sourced facts with a public source list"
+      ]
+    },
+    "cta": "Hire me on Upwork",
+    "ctaHref": "https://www.upwork.com/freelancers/~hezg14",
+    "imageRule": {
+      "title": "The image rule",
+      "body": "Every photograph must be placeable in Nujiang from its own metadata — a Commons category naming the county, an EXIF GPS fix, or an author description naming the village. Filenames are not evidence. Anything that fails is dropped or captioned “illustrative”, never given a Nujiang place name."
+    },
+    "ctaTitle": "Need a build like this one?",
+    "ctaNote": "I take on Next.js + Python work — bilingual marketing sites, data-heavy dashboards, and content systems that have to be correct."
+  },
+  "footer": {
+    "tagline": "A portrait of China's last coffee frontier.",
+    "builtWith": "Built with Next.js · Python/FastAPI · Tailwind CSS",
+    "builtBy": "Design & build by hezg.dev",
+    "rights": "All rights reserved.",
+    "credits": "Photography: Wikimedia Commons (licences and authors in docs/MEDIA.md).",
+    "sourcesTitle": "Sources & notes",
+    "sources": [
+      {
+        "label": "Nujiang Prefecture — 2026 Lisu Kuoshi Festival press conference (Dec 2025)",
+        "href": "https://www.nujiang.gov.cn/2025/1209/19892.html"
+      },
+      {
+        "label": "Nujiang Prefecture — outdoor-sports development plan, “秘境怒江 户外天堂” (Jun 2025)",
+        "href": "https://www.nujiang.gov.cn/xxgk/015279138/info/2025-264931.html"
+      },
+      {
+        "label": "Nujiang press office — three winter routes and the coffee route (Dec 2025)",
+        "href": "https://xwfb.nujiang.cn/2025/69.html"
+      },
+      {
+        "label": "China.com.cn — “Coffee fragrance over the Nujiang canyon” (Apr 2026, industry figures)",
+        "href": "https://big5.china.com.cn/gate/big5/union.china.com.cn/txt/2026-04/21/content_43404942.shtml"
+      },
+      {
+        "label": "Nujiang Prefecture — 2025 specialty coffee work plan (2025)",
+        "href": "https://www.nujiang.gov.cn/xxgk/015279138/info/2025-258872.html"
+      },
+      {
+        "label": "China Daily — 6th Nujiang Coffee & Cardamom Week (Sep 2025)",
+        "href": "https://www.toutiao.com/article/7552143573240660495/"
+      },
+      {
+        "label": "Yunnan Daily — Zhiziluo coffee estate (2025)",
+        "href": "https://ynrb-wap.yndaily.com/news_details.html?eid=c3dc27e69a5a9de8"
+      },
+      {
+        "label": "Nujiang.cn — Yunnan classic hiking routes (2024)",
+        "href": "https://www.nujiang.cn/2024/0923/170026.html"
+      }
+    ],
+    "disclaimer": "Figures are compiled from public sources (2023–2026) and rounded; verify before travel or commercial use. Photographs are credited to their authors under the licences listed in docs/MEDIA.md; none depict political figures or events.",
+    "project": "Nujiang 26.5 · a live case study"
+  },
+  "journal": {
+    "eyebrow": "Field notes — 手记",
+    "title": "Longer reads from the canyon.",
+    "lead": "Three pieces that go deeper than the homepage: the latitude argument, one town's second life, and the routes the prefecture is actually selling.",
+    "back": "All field notes",
+    "backHome": "Back to the overview",
+    "sourcesLabel": "Sources & verification"
+  }
+}

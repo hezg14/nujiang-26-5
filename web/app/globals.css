@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm editorial "coffee paper" palette — one saturated accent only.
+     Colours are stored as `r g b` channel triplets so Tailwind's /opacity
+     modifiers actually work (bg-paper/95, border-line/60 …). */
+  --paper: 246 241 231;
+  --paper-2: 251 248 241;
+  --ink: 36 28 22;
+  --ink-2: 91 81 72;
+  --ink-3: 140 128 115;
+  --line: 227 218 203;
+  --accent: 178 58 43; /* coffee-cherry / terracotta */
+  --accent-ink: 255 255 255;
+  --leaf: 74 93 58; /* desaturated supporting tone */
+
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC",
+    "Noto Serif CJK SC", Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+}
+
+.dark {
+  --paper: 20 16 12;
+  --paper-2: 27 22 17;
+  --ink: 239 232 220;
+  --ink-2: 179 168 150;
+  --ink-3: 124 114 100;
+  --line: 46 39 31;
+  --accent: 214 90 68;
+  --accent-ink: 20 16 12;
+  --leaf: 143 163 122;
+}
+
+/* ---------- Sticky header scheme ----------
+   Sections that paint a dark surface carry data-scheme="dark". While the
+   header sits over one, the palette is re-pointed locally — so every
+   token-based child (wordmark, nav, language switch, mobile panel) flips
+   together instead of being patched class by class. */
+.site-header[data-header-scheme="dark"] {
+  --paper: 26 21 16;
+  --paper-2: 32 26 20;
+  --ink: 243 238 230;
+  --ink-2: 208 199 186;
+  --ink-3: 158 147 134;
+  --line: 62 54 45;
+  --accent: 214 128 108;
+  --accent-ink: 26 21 16;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "tnum";
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+::selection {
+  background: rgb(var(--accent));
+  color: rgb(var(--accent-ink));
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  color: rgb(var(--ink-3));
+}
+
+/* ---------- Repeated surface recipes ----------
+   These four shapes recur a dozen times each. Naming them keeps the JSX about
+   structure and copy instead of about borders and paddings. They read tokens,
+   so the dark header scheme still repaints them without a second variant. */
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line;
+  }
+
+  .label {
+    @apply font-mono text-micro uppercase tracking-[0.18em] text-ink-3;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-line px-3 py-1 font-mono text-xs text-ink-2;
+  }
+
+  .rules {
+    @apply divide-y divide-line border-y border-line;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3
+      text-sm font-semibold text-accent-ink transition duration-200
+      hover:-translate-y-0.5 hover:opacity-95;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line
+      px-5 py-3 text-sm font-semibold transition duration-200 hover:border-ink;
+  }
+}
+
+/* ---------- Nav: active section ---------- */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: rgb(var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 0.68, 0.3, 1),
+    background-color 0.45s ease;
+}
+.nav-link[data-active="true"] {
+  color: rgb(var(--ink));
+}
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Tokens swap the instant the header crosses into a dark section; let the
+   type follow over the same beat instead of snapping. `.site-header` carries
+   the colour itself so the wordmark — which inherits rather than declaring a
+   token — flips with everything else. */
+.site-header {
+  color: rgb(var(--ink));
+}
+.site-header,
+.site-header * {
+  transition: color 0.45s ease, background-color 0.45s ease,
+    border-color 0.45s ease;
+}
+.site-header .nav-link {
+  transition: color 0.45s ease;
+}
+
+/* ---------- Scroll reveal ----------
+   Hidden state is only applied once JS marks the document, so the page
+   still reads fully if scripts fail. */
+.reveal-on [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal-on [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.85s cubic-bezier(0.22, 0.68, 0.3, 1),
+    transform 0.85s cubic-bezier(0.22, 0.68, 0.3, 1);
+}
+
+/* ---------- Hero entrance ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes wipe {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.hero-line {
+  animation: rise 0.9s cubic-bezier(0.22, 0.68, 0.3, 1) both;
+}
+.hero-plate {
+  animation: wipe 1.15s cubic-bezier(0.22, 0.68, 0.3, 1) 0.18s both;
+}
+
+/* ---------- Fine detail: the specimen underline draws in ---------- */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-line,
+  .hero-plate {
+    animation: none !important;
+  }
+  .reveal-on [data-reveal],
+  .reveal-on [data-reveal].is-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
