@@ -21,7 +21,11 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: dict.meta.title,
+      // The tab and the bookmark show this, so it is the project name only:
+      // "Nujiang 26.5 — Coffee, Canyon & Culture" is 39 characters and browsers
+      // cut it around 30, which reads as a broken title. The longer line still
+      // does its job in the share card and the description below.
+      default: dict.brand.project,
       template: `%s | ${dict.brand.project}`,
     },
     description: dict.meta.description,
