@@ -26,7 +26,7 @@ app/[locale]/          one file per route; page.tsx is a running order, not a la
 components/home/       one file per band of the home page (Hero … AboutCta)
 components/ui/         Section, SectionHead, Chapter — the shapes every band shares
 components/            SiteHeader, SiteFooter, ContactForm, JournalCard, DishMark,
-                       TerrainPlate, RevealObserver
+                       RevealObserver
 lib/                   types.ts (dictionary contract), i18n/locales (one place for
                        locale rules), site.ts (env + constants), paths.ts,
                        reveal.ts, useRafScroll.ts
@@ -56,7 +56,7 @@ uvicorn main:app --reload --port 8000
 
 | Route | What it is |
 |---|---|
-| `/[locale]` | Editorial home: hero → official tourism-brand band → coffee (one-harvest statement, specimen table, industry figures, coffee-plus-tourism) → 9 landscape cards (8 photographs + a measured cross-section of Kongque Shan) → trek → food (line-drawn dish marks) → visit + lead form → journal preview |
+| `/[locale]` | Editorial home: hero → official tourism-brand band → coffee (one-harvest statement, specimen table, industry figures, coffee-plus-tourism) → 9 landscape photographs → trek → food (line-drawn dish marks) → visit + lead form → journal preview |
 | `/[locale]/journal` | Field-notes index, 3 long reads |
 | `/[locale]/journal/[slug]` | Article with `Article` JSON-LD, per-locale canonical + hreflang |
 | `/[locale]/about` | The case study: brief → approach → the image rule → stack → result → Upwork CTA |

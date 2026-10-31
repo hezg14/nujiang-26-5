@@ -190,7 +190,7 @@
     "eyebrow": "The canyon — 景观",
     "title": "Two snow ranges, one river.",
     "lead": "More than 98% of Nujiang is mountain and gorge. The Nujiang (Salween) runs between the Gaoligong and Biluo ranges — a UNESCO “Three Parallel Rivers” core zone and one of the world's richest temperate ecosystems.",
-    "creditNote": "Every photograph below is geolocated to Nujiang Prefecture; place names and coordinates follow the source file, not the caption writer. One card is a drawn section, not a photograph — it says so.",
+    "creditNote": "All nine are photographs of Nujiang Prefecture. Place names follow the source record, not the caption writer — and where a photograph is a press image rather than an openly licensed one, the credit says so.",
     "items": [
       {
         "name": "Nujiang Grand Canyon",
@@ -242,21 +242,11 @@
       },
       {
         "name": "Biluo Range & Kongque Shan",
-        "image": "",
-        "caption": "Northern Biluo, Gongshan–Deqin border",
-        "body": "A pyramidal peak of about 4,400 m, named for a peacock's fanned tail, standing on the Gongshan–Deqin county line with the river systems split on either side. The old Degong road crosses the range at a 3,882 m pass, and the Tianxin Twelve Lakes sit in the basin just above it. No openly licensed photograph of the summit exists, so this card draws the measured section instead of captioning another mountain.",
-        "profile": {
-          "peak": "Kongque Shan",
-          "summit": "4,400 m",
-          "pass": "3,882 m",
-          "passLabel": "pass",
-          "lakes": "Tianxin Twelve Lakes",
-          "scaleLabel": "10 km",
-          "axisLabel": "metres"
-        }
+        "image": "/images/kongque-shan.jpg",
+        "caption": "Northern Biluo · Gongshan–Deqin border",
+        "body": "A pyramidal peak of about 4,400 m whose ridges fall away on every side like a fanned tail — hence the name. It stands on the Gongshan–Deqin county line and separates the Nujiang from the Lancang. The old Degong road crosses at a 3,882 m pass, and the Tianxin Twelve Lakes lie in the basin just above it."
       }
-    ],
-    "plateTag": "Drawn section"
+    ]
   },
   "trek": {
     "eyebrow": "The trail — 徒步",
@@ -440,6 +430,10 @@
       {
         "label": "Nujiang.cn — Yunnan classic hiking routes (2024)",
         "href": "https://www.nujiang.cn/2024/0923/170026.html"
+      },
+      {
+        "label": "Photograph: Kongque Shan — Nujiang.cn, “山不见我 我自去见孔雀山” (Oct 2023)",
+        "href": "https://www.nujiang.cn/2023/1020/145601.html"
       }
     ],
     "disclaimer": "Figures are compiled from public sources (2023–2026) and rounded; verify before travel or commercial use. Photographs are credited to their authors under the licences listed in docs/MEDIA.md; none depict political figures or events.",

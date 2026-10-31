@@ -11,24 +11,11 @@ export interface SpecRow {
   value: string;
 }
 
-/** Labels for the drawn cross-section used when no photo exists. */
-export interface TerrainProfile {
-  peak: string;
-  summit: string;
-  pass: string;
-  passLabel: string;
-  lakes: string;
-  scaleLabel: string;
-  axisLabel: string;
-}
-
 export interface LandscapeItem {
   name: string;
-  /** Empty only when the card renders `profile` instead of a photograph. */
   image: string;
   caption: string;
   body: string;
-  profile?: TerrainProfile;
 }
 
 export interface RouteItem {
@@ -105,8 +92,6 @@ export interface Dict {
     title: string;
     lead: string;
     creditNote: string;
-    /** Stamped on the drawn card so it never reads as a broken photo. */
-    plateTag: string;
     items: LandscapeItem[];
   };
   trek: {

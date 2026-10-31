@@ -74,6 +74,24 @@ photography, but their terms do not grant commercial re-use. They are used on th
 **factual sources**, not as image sources. If you want their photos on the site, the route
 is a written request to the publishing office — not a download.
 
+**One exception, stated plainly.** `kongque-shan.jpg` is a press image from
+怒江大峡谷网 (the prefecture's own news portal), article 145601, published
+2023-10-20 under the title 「有一种叫云南的生活丨山不见我 我自去见孔雀山」 —
+<https://www.nujiang.cn/2023/1020/145601.html>. Original:
+`file.nujiang.cn/weixin/20231023/84814eb1bc04c558c3399cecba8c69f2.jpeg`.
+
+It is here as **editorial illustration with the source credited**, for a
+non-commercial portfolio piece. It is *not* openly licensed, and it is the only
+image on the site in that category. Before this site carries advertising, client
+work, or any commercial traffic, replace it with a licensed frame or write to the
+publishing office for permission. The credit line in `landscape.creditNote` exists
+so that this distinction stays visible on the page itself, not just in this file.
+
+If you do need to pull it: the source file is portrait 1080 × 1920 with the
+rotation stored nowhere in EXIF, so it has to be rotated 90° clockwise by hand
+before cropping. `kongque-shan.jpg` is that image rotated, then centre-cropped to
+1440 × 1080 for the 4:3 card.
+
 ## Correction, this pass: where Kongque Shan actually is
 
 The card previously placed the peak in **兰坪县**. It is not there. Kongque Shan
@@ -89,8 +107,7 @@ peak, and at 720 px it is too soft for a 380 px card at 2×. It is not used as a
 stand-in for Kongque Shan, and `biluo-snow.jpg` (an unused earlier copy of the
 same frame) was deleted from the repo.
 
-The card is now a **dark specimen plate** rather than a pale chart: linear
-elevation axis (2,000 / 3,000 / 4,000 m), summit crosshair at 4,400 m, the pass
-notch at 3,882 m, lake dots on the saddle, a 10 km scale bar, and a corner tag
-reading `DRAWN SECTION` so it never reads as a broken image. It is the only dark
-card in a grid of photographs, which is what makes it look intentional.
+The card is now a photograph — `kongque-shan.jpg`, described above. It is an
+aerial of the summit with the ridge falling away on both sides, which is exactly
+the shape the name refers to, so the caption no longer has to explain the peak;
+the picture does it.
