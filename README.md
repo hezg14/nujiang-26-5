@@ -151,17 +151,29 @@ Two conventions worth knowing before editing:
 
 ## Deploy
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hezg14/nujiang-26-5)
+
+**Platform: Render (Docker) + Neon Postgres** — the same pair OrderHub runs on,
+and, like OrderHub, **frontend and backend ship as one service**: one container,
+one origin, one thing to keep warm. There is no separate static host and no
+separate API host.
+
 One Docker image serves both halves on a single port: nginx in front, Next.js on
 `:3000`, FastAPI on `:8000` behind it, `/api/*` routed to the API and everything
-else to the site. One origin means no CORS and no cross-site cookies.
+else to the site. Sharing an origin is what removes CORS and cross-site cookies
+from the deployment entirely.
 
 ```bash
 docker build -t nujiang-26-5 .
 docker run --rm -p 3000:10000 -e PORT=10000 nujiang-26-5   # no DATABASE_URL → SQLite
 ```
 
-Production target is **Render (Docker) + Neon Postgres**, driven by the
-`render.yaml` Blueprint in this repo; the image path and the env checklist are in
-[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). The frontend also has a
-frontend-only preview deployment on the file-based host, in demo mode — that link
-acknowledges submissions without storing them, so share the Render one.
+The button above opens Render's Blueprint flow for this repo; it reads
+`render.yaml`, builds `./Dockerfile`, and asks for one secret (`DATABASE_URL`).
+The step-by-step, including the Neon connection string and the keep-alive worker
+that stops the free plan from cold-starting, is in
+[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+
+The frontend also has a frontend-only preview deployment on the file-based host,
+in demo mode — that link acknowledges submissions without storing them, so share
+the Render one.
